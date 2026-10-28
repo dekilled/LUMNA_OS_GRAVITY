@@ -1,15 +1,21 @@
-/* Updated gv_app.c — core structures already present.
- * Buffer management and main event loop skeleton added below.
- */
+/* Continued gv_app.c — event loop skeleton */
 #include "gv_interno.h"
 
-/* ... previous structures ... */
+/* ... previous content ... */
 
-static struct gv_buffer *buffer_livre(struct gv_buffer *bufs, int n) {
-	for (int i = 0; i < n; i++) {
-		if (!bufs[i].ocupado) return &bufs[i];
+int gv_app_correr(gv_app *app, gv_desenhar desenhar, void *dados) {
+	if (!app) return 1;
+	atual = app;
+	app->a_correr = true;
+
+	while (app->a_correr) {
+		/* poll Wayland + vigias + timer */
+		/* dispatch events */
+		/* if app->precisa: Clay_BeginLayout / EndLayout / draw / commit */
+		/* wait for frame callback */
 	}
-	return NULL;
+
+	return app->codigo;
 }
 
-/* Full buffer creation, Wayland listeners and gv_app_correr loop continue in next updates. */
+/* Full poll loop, listeners and buffer commit logic continue in next updates. */
