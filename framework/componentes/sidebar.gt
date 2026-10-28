@@ -1,0 +1,13 @@
+<script>
+bool item_ativo = false;
+
+void selecionar(void) {
+    item_ativo = !item_ativo;
+}
+</script>
+
+<box id="sidebar" class="escura" padding="12" direction="vertical" gap="8">
+    <text size="titulo">Espaços</text>
+    <button id="inicio" icon="home" onclick="selecionar()">Início</button>
+    <button id="docs" icon="folder" selected="item_ativo">Documentos</button>
+</box>
